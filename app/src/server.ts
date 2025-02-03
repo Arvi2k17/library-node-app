@@ -44,7 +44,9 @@ export class ServerApp {
     const nodeRoutes:NodeRoutes = new NodeRoutes();
     const app = this.getApp();
     nodeRoutes.routes(app).then((errors:any) => {
-      console.log(colors.red(errors));
+      if(errors){
+        console.log(colors.red(errors));
+      }
       this.listen(3500);
     })
   }
